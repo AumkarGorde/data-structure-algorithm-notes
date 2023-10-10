@@ -39,30 +39,46 @@ Both `ReverseLogicOne` and `ReverseLogicTwo` methods accomplish the task of reve
             return result;
         }
 
+/*In-Place Reversal Algorithm:
+
+1. Initialize two pointers, left and right, with the following values:
+        left: The index of the first element of the array (e.g., 0).
+        right: The index of the last element of the array (e.g., array.Length - 1).
+2. While left is less than right, do the following steps:
+    a. Swap the elements at indices left and right in the array.
+    b. Increment left by 1 (move left towards the right).
+    c. Decrement right by 1 (move right towards the left).
+3. Repeat step 2 until left becomes greater than or equal to right. At this point, the array is fully reversed. */
         public static int[] ReverseLogicTwo(int[] a)
         {
             int left = 0;
             int right = a.Length - 1;
             while (left < right)
             {
-                int temp = a[left];
-                a[left] = a[right];
-                a[right] = temp;
+                int temp = a[right];
+                a[right] = a[left];
+                a[left] = temp;
                 left++;
                 right--;
             }
             return a;
         }
 
-        /*In-Place Reversal Algorithm:
+        public static string ReverseLogicThree(string a)
+        {
+            char[] chars = a.ToCharArray();
+            int left = 0;
+            int right = a.Length - 1;
+            while (left < right)
+            {
+                char temp = chars[right];
+                chars[right] = chars[left];
+                chars[left] = temp;
+                left++; 
+                right--;
+            }
+            return chars.ToString();
+        }
 
-        1. Initialize two pointers, left and right, with the following values:
-                left: The index of the first element of the array (e.g., 0).
-                right: The index of the last element of the array (e.g., array.Length - 1).
-        2. While left is less than right, do the following steps:
-            a. Swap the elements at indices left and right in the array.
-            b. Increment left by 1 (move left towards the right).
-            c. Decrement right by 1 (move right towards the left).
-        3. Repeat step 2 until left becomes greater than or equal to right. At this point, the array is fully reversed. */
     }
 }
